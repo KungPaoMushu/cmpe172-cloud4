@@ -12,11 +12,3 @@
         apt: pkg=nginx state=installed update_cache=true
       - name: index.html copy
         template: src=index.html.j2 dest=/usr/share/nginx/html/index.html
-
-tasks:
-      - name: 'remove non-config'
-        raw: sudo apt-get remove nginx nginx-common
-      - name: 'remove everything + config'
-        raw: sudo apt-get purge nginx nginx-common
-      - name: 'remove dependencies'
-        raw: sudo apt-get autoremove
