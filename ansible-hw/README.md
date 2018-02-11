@@ -24,8 +24,9 @@
 In our case, *Public IP* is ***18.216.175.136***), and run:
 
       $ssh -i ansible-server.pem ubuntu@18.216.175.136
+      
 Expected results:
-![Alt text](/ansible-hw/success-ec2.png?raw=true "Image")
+![Alt text](/ansible-hw/screenshots_images/success-ec2.png?raw=true "Image")
 
 - input **exit** within the sss EC2 console to quit
 
@@ -50,7 +51,7 @@ Expected results:
       
 Expected results:
 
-![Alt text](/ansible-hw/success-ansible-ec2.png?raw=true "success")
+![Alt text](/ansible-hw/screenshots_images/success-ansible-ec2.png?raw=true "success")
 
 
 - Create a new file called ***sites.yml***
@@ -86,14 +87,14 @@ Expected results:
       
 Expected results:
 
-![Alt-text](/ansible-hw/success-playbook.png)
+![Alt-text](/ansible-hw/screenshots_images/success-playbook.png)
 
 *Note that the initial run of the command above could produce an output *change=2*
 
 - Go to your browser and navigate ***http://18.216.175.136***
 
 Expected results:
-![Alt text](/ansible-hw/success-nginx.png)
+![Alt text](/ansible-hw/screenshots_images/success-nginx.png)
 
 ### Routing customized HTML in the Nginx server
 - Run
@@ -125,6 +126,6 @@ Expected results:
 - Go to your browser and navigate ***http://18.216.175.136***
 
 Expected results:
-![Alt txt](/ansible-hw/success-nginx-html.png)
+![Alt txt](/ansible-hw/screenshots_images/success-nginx-html.png)
 
 - Done! Ansible playbook is deployed and the html is visible under port 80!
