@@ -6,9 +6,9 @@
   
 
 tasks:
-      - name: 'remove non-config'
-        raw: sudo apt-get remove nginx nginx-common
-      - name: 'remove everything + config'
-        raw: sudo apt-get purge nginx nginx-common
-      - name: 'remove dependencies'
-        raw: sudo apt-get autoremove
+    - name: 'remove non-config'
+      raw: sudo apt-get remove nginx nginx-common
+    - name: 'remove everything + config'
+      raw: sudo apt-get purge nginx nginx-common
+    - name: 'remove dependencies'
+      raw: sudo apt-get autoremove
