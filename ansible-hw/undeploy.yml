@@ -6,6 +6,8 @@
   
 
 tasks:
+    - name: 'stop nginx server'
+      raw: sudo systemctl stop nginx 
     - name: 'remove non-config'
       raw: sudo apt-get remove nginx nginx-common
     - name: 'remove everything + config'
