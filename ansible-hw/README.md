@@ -65,7 +65,7 @@ Expected results:
         gather_facts: no
         
         tasks:
-            - name: 'updtes'
+            - name: 'updates'
               raw: sudo apt-get update
             - name: Nginx setup
               become: yes
@@ -129,3 +129,10 @@ Expected results:
 ![Alt txt](/ansible-hw/screenshots_images/success-nginx-html.png)
 
 - Done! Ansible playbook is deployed and the html is visible under port 80!
+
+### Un-deploy Server
+- Run the following command:
+
+      ansible-playbook -i hosts -s -u ubuntu undeploy.yml
+      
+ 
