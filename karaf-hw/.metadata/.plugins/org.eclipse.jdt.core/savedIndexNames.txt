@@ -1,0 +1,1 @@
+INDEX VERSION 1.130+/Users/whw/sp18sjsu/cmpe172-cloud4/karaf-hw/.metadata/.plugins/org.eclipse.jdt.core
