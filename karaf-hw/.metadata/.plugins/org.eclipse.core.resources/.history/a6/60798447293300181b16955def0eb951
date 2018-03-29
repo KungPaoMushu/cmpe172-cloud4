@@ -1,0 +1,16 @@
+package com.Weather.Servlets;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+
+public class WeatherServlet extends HttpServlet {
+	private static final long serialversionUID = 1L;
+	
+	public WeatherServlet() {
+		super();
+	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
+		
+	}
+}

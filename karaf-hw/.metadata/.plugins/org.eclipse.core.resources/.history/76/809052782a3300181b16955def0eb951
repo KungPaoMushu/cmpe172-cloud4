@@ -1,0 +1,36 @@
+package com.Weather.Servlets;
+
+import java.io.IOException;
+import java.rmi.ServerException;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+
+import com.Weather.Entities.*;
+import com.Weather.Services.*;
+
+public class WeatherServlet extends HttpServlet {
+	private static final long serialversionUID = 1L;
+	
+	public WeatherServlet() {
+		super();
+	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServerException, IOException {
+		String city = request.getParameter("q");
+		Root weatherInfoObj = OWMService.getWeatherInfo(city);
+		if (weatherInfoObj != null) {
+			StringBuider outContent = new StringBuilder();
+			outContent.append("<html><head><title>Weather Data</title></head>"
+					+ "<body>"
+					+ "<form action=\"weather\" method=\"GET\">"
+					+ "<select name=\"q\">"
+					+ "<option value=\"Caracas\">Caracas</option>"
+					+ "</select>"
+					+ "<input type=\"submit\" value=\"Submit\">"
+					+ "</form>");
+					
+			outContent.append("</body></html>");
+		}
+	}
+}
