@@ -1,0 +1,16 @@
+package com.Weather.Services;
+
+import com.Weather.Entities.Root;
+
+public class OWMService {
+	private static final String apiKey="884300434e6f86e64102db6d13434312";
+	private static final String baseUrl = "http://api.openweathermap.org/data/2.5/weather?q=";
+	
+	public static Root getWeatherInfo(String cityName) {
+		String jsonResult = getWeatherJsonString(cityName);
+		Root weatherInfoObject = toEntity(jsonResult);
+		return weatherInfoObject;
+	}
+	
+	
+}
