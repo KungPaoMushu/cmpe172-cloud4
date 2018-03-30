@@ -18,7 +18,7 @@ osgi.wiring.package; (osgi.wiring.package=javax.servlet.jsp)
 102; version=2.3.1
 osgi.wiring.package; (osgi.wiring.package=javax.servlet.jsp.el)
 102; version=2.3.1
-osgi.wiring.package; (&(osgi.wiring.package=org.apache.log4j.spi)(provider=paxlogging))
-6; version=1.2.15
 osgi.wiring.package; (&(osgi.wiring.package=org.slf4j.helpers)(provider=paxlogging))
 6; version=1.7.25
+osgi.wiring.package; (&(osgi.wiring.package=org.apache.log4j.spi)(provider=paxlogging))
+6; version=1.2.15
