@@ -19,10 +19,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
 public class TwitterUtils {
-
-	private static final String CONSUMER_KEY = "beGzr1ESpGw59ObLndUVBEpdn";
-	private static final String CONSUMER_SECRET = "BKa5Qm7XNyojP3gUZ9Um7kHvYhtrRhlgPKFfwIPo1TzzIB8lke";
-
 	/**
 	 * Author: Quang Duy Luong
 	 * @param username - username of Twitter user whose tweets should be retrieved
@@ -75,7 +71,7 @@ public class TwitterUtils {
 	 * @throws IOException
 	 */
 	private static String getBearerToken () throws IOException {
-		String credentials = CONSUMER_KEY + ":" + CONSUMER_SECRET;
+		String credentials = Config.CONSUMER_KEY + ":" + Config.CONSUMER_SECRET;
 		String encodedKey = new String(Base64.getEncoder().encode(credentials.getBytes()));
 		HttpsURLConnection connection = null;
 		URL url = new URL("https://api.twitter.com/oauth2/token"); 
