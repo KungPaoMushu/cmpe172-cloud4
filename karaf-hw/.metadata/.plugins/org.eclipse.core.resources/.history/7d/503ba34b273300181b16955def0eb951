@@ -1,7 +1,0 @@
-package com.Weather.Services;
-
-import com.Weather.Entities.Root;
-
-public class OWMService {
-
-}

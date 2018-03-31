@@ -1,7 +1,0 @@
-package com.Weather.Servlets;
-
-import javax.servlet.http.HttpServlet;
-
-public class WeatherServlet extends HttpServlet {
-
-}
