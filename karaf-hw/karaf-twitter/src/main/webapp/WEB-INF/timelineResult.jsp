@@ -8,7 +8,7 @@
 </head>
 <body>
 	<jsp:include page="topHeader.jsp"></jsp:include>
-	
+
 	<h3>Timeline API</h3>
 	<%	String[][] tweets = ((String[][])request.getAttribute("tweets"));
 		String output = "";%>

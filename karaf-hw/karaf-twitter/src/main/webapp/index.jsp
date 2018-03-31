@@ -5,7 +5,7 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/topHeader.jsp"></jsp:include>
-	
+
 	<h3>Twitter REST APIs</h3>
 	<h4>Timeline API</h4>
 	<p>Retrieves the latest <b>number</b> tweets by the specified <b>Twitter username</b>.<br>Includes retweets as well. Implements Twitter's Get Tweet Timelines API: https://api.twitter.com/1.1/statuses/user_timeline.json</p>
