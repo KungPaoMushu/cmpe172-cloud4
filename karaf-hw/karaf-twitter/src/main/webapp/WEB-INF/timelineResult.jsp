@@ -7,14 +7,8 @@
 <title>Karaf/Twitter assignment</title>
 </head>
 <body>
-	<h1>Cloud 4</h1>
-	<ul>
-		<li>Cameron Chien</li>
-		<li>Jie Peng Hu</li>
-		<li>Ibrahim Ibrahim</li>
-		<li>Quang Duy Luong</li>
-	</ul>
-	<br>
+	<jsp:include page="topHeader.jsp"></jsp:include>
+	
 	<h3>Timeline API</h3>
 	<%	String[][] tweets = ((String[][])request.getAttribute("tweets"));
 		String output = "";%>
