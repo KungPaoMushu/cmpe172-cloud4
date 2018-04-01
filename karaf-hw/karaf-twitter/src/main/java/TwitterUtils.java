@@ -30,16 +30,12 @@ public class TwitterUtils {
 		HttpsURLConnection connection = null;
 		String bearerToken = getBearerToken();
 		try {
-			URL url = new URL("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name="
-					+ username + "&count=" + count); 
-			connection = (HttpsURLConnection) url.openConnection();           
-			connection.setDoOutput(true);
-			connection.setDoInput(true); 
-			connection.setRequestMethod("GET"); 
-			connection.setRequestProperty("Host", "api.twitter.com");
-			connection.setRequestProperty("User-Agent", "Karaf-twitter");
-			connection.setRequestProperty("Authorization", "Bearer " + bearerToken);
-			connection.setUseCaches(false);
+			URL apiURl = new URL("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name="
+					+ username + "&count=" + count);
+			connection = (HttpsURLConnection) apiURl.openConnection();  
+			
+			// Helper method to establish the connection with the specified method: GET/POST
+			establishConnection(connection, bearerToken, "GET");
 			
 			//JSON parser reads extracts the necessary information from the results JSON object
 			JSONArray obj = (JSONArray)JSONValue.parse(getResponse(connection));
@@ -63,6 +59,24 @@ public class TwitterUtils {
 				connection.disconnect();
 			}
 		}
+	}
+	
+	/**
+	 * Author: Jie Peng Hu
+	 * This is a helper method to establish connection with twitter
+	 * @param conn Input HttpsURLConnection
+	 * @param token 
+	 * @param method: GET or POST
+	 * @throws IOException
+	 */
+	private static void establishConnection(HttpsURLConnection conn, String token, String method) throws IOException {       
+		conn.setDoOutput(true);
+		conn.setDoInput(true); 
+		conn.setRequestMethod(method); 
+		conn.setRequestProperty("Host", "api.twitter.com");
+		conn.setRequestProperty("User-Agent", "Karaf-twitter");
+		conn.setRequestProperty("Authorization", "Bearer " + token);
+		conn.setUseCaches(false);
 	}
 
 	/**
