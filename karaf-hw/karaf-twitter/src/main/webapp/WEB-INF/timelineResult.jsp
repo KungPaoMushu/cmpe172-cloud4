@@ -13,7 +13,7 @@
 	<%	String[][] tweets = ((String[][])request.getAttribute("tweets"));
 		String output = "";%>
 	<%	if (tweets == null || tweets.length == 0) {
-			output = "No tweets exist for this user";
+			output = "No tweets found";
 		} else {
 			for(String[] tweet : tweets) {
 				output += tweet[0] + " said on " + tweet[1] + ":<br>&nbsp;&nbsp;" + tweet[2] + "<br><br>";
