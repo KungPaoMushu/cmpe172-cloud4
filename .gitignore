@@ -12,3 +12,5 @@ Config.java
 
 # Ignore Mac recording file
 .DS_Store
+
+karaf-twitter/target/

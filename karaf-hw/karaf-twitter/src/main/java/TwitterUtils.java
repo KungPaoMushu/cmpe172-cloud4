@@ -5,11 +5,14 @@
  */
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Iterator;
 
@@ -31,9 +34,9 @@ public class TwitterUtils {
 		HttpsURLConnection connection = null;
 		String bearerToken = getBearerToken();
 		try {
-			URL apiURl = new URL("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name="
+			URL apiURL = new URL("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name="
 					+ username + "&count=" + count);
-			connection = (HttpsURLConnection) apiURl.openConnection();  
+			connection = (HttpsURLConnection) apiURL.openConnection();  
 			
 			// Helper method to establish the connection with the specified method: GET/POST
 			establishConnection(connection, bearerToken, "GET");
@@ -136,6 +139,39 @@ public class TwitterUtils {
 			throw new IOException("URL could not be resolved.", e);
 		}
 		finally {
+			if (connection != null) {
+				connection.disconnect();
+			}
+		}
+	}
+	
+	/**
+	 * Author: Jie Peng Hu
+	 * @param numberOfTweets
+	 * @return
+	 * @throws IOException
+	 */
+	public static String[][] getTrendingTweets(int id, int count) throws IOException {
+		HttpsURLConnection connection = null;
+		String bearerToken = getBearerToken();
+		try {
+			URL apiURL = new URL("https://api.twitter.com/1.1/trends/place.json?id=" + id);
+			connection = (HttpsURLConnection) apiURL.openConnection();
+			establishConnection(connection, bearerToken, "GET");
+			JSONArray resultsObj = (JSONArray)JSONValue.parse(getResponse(connection));			
+			JSONArray trendsObj = (JSONArray)JSONValue.parse(((JSONObject)resultsObj.get(0)).get("trends").toString());
+			System.out.println(((JSONObject)resultsObj.get(0)).get("trends").toString());
+			
+			String[][] trendingInformation = new String[count][4];
+			for (int i = 0 ; i < trendingInformation.length ; i++) {
+				trendingInformation[i][0] = ((JSONObject)resultsObj.get(0)).get("as_of").toString();
+				trendingInformation[i][1] = ((JSONObject)resultsObj.get(0)).get("trends").toString();
+				trendingInformation[i][2] = ((JSONObject)trendsObj.get(i)).get("name").toString();
+				trendingInformation[i][3] = ((JSONObject)trendsObj.get(i)).get("url").toString();
+//				System.out.println(trendingInformation[i][2] + "\n" + trendingInformation[i][3]);
+			}
+			return trendingInformation;
+		} finally {
 			if (connection != null) {
 				connection.disconnect();
 			}
