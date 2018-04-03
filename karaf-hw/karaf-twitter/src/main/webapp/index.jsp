@@ -13,6 +13,12 @@
 		<input name="user" type="text" placeholder="Twitter username">
 		<input name="count" type="number" placeholder="Number of tweets" min="1" max="200">
 		<input type="submit" value="click">
+	
+	<h4>Search Tweet API</h4>
+	</form>
+		<form method="POST" action="searchtweets">
+		<input name="tweet" type="text" placeholder="enter tweet">
+		<input type="submit" value="search">
 	</form>
 	
 	<form method="POST" action="trendingtweets">

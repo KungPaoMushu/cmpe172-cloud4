@@ -14,6 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.Iterator;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -49,6 +50,41 @@ public class TwitterUtils {
 					tweets[i][2] = ((JSONObject)obj.get(i)).get("text").toString();
 					tweets[i][1] = ((JSONObject)obj.get(i)).get("created_at").toString();
 					tweets[i][0] = "@" + username;
+				}
+				return tweets;
+			}
+			return null;
+		}
+		catch (MalformedURLException e) {
+			throw new IOException("URL could not be resolved.", e);
+		}
+		finally {
+			if (connection != null) {
+				connection.disconnect();
+			}
+		}
+	}
+	
+	public static String[][] getSearchedTweets(String tweet) throws IOException{
+		HttpsURLConnection connection = null;
+		String bearerToken = getBearerToken();
+		try {
+			URL apiURl = new URL("https://api.twitter.com/1.1/search/tweets.json?q="+ tweet);
+			connection = (HttpsURLConnection) apiURl.openConnection();  
+			
+			// Helper method to establish the connection with the specified method: GET/POST
+			establishConnection(connection, bearerToken, "GET");
+			
+			
+		    //JSON parser reads extracts the necessary information from the results JSON object
+			JSONObject obj2 = (JSONObject) JSONValue.parse(getResponse(connection));
+			JSONArray obj = (JSONArray) obj2.get("statuses");
+			if (obj != null) {
+				String[][] tweets = new String[obj.size()][2];
+				for(int i = 0; i < tweets.length; i++) {
+					tweets[i] = new String[2];
+					tweets[i][0] = ((JSONObject)obj.get(i)).get("text").toString();
+					tweets[i][1] = ((JSONObject)obj.get(i)).get("created_at").toString();
 				}
 				return tweets;
 			}
