@@ -14,5 +14,10 @@
 		<input name="count" type="number" placeholder="Number of tweets" min="1" max="200">
 		<input type="submit" value="click">
 	</form>
+	
+	<form method="POST" action="trendingtweets">
+		<input name="numberOfTopic" type="number" placeholder="Number of results" min="1" max="200">
+		<input type="submit" value="Explore Trending">
+	</form>
 </body>
 </html>
