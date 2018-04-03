@@ -61,7 +61,12 @@ public class TwitterUtils {
 			}
 		}
 	}
-	
+	/**
+	 * Author: ibrahim
+	 * @param tweet - tweet to be searched
+	 * @return - returns all mentions of tweet.
+	 * @throws IOException
+	 */
 	public static String[][] getSearchedTweets(String tweet) throws IOException{
 		HttpsURLConnection connection = null;
 		String bearerToken = getBearerToken();
@@ -84,6 +89,46 @@ public class TwitterUtils {
 					tweets[i][1] = ((JSONObject)obj.get(i)).get("created_at").toString();
 				}
 				return tweets;
+			}
+			return null;
+		}
+		catch (MalformedURLException e) {
+			throw new IOException("URL could not be resolved.", e);
+		}
+		finally {
+			if (connection != null) {
+				connection.disconnect();
+			}
+		}
+	}
+	
+	/**
+	 * Author: ibrahim 
+	 * @return list of followers
+	 * @throws IOException
+	 */
+	public static String[][] getFollowers() throws IOException{
+		HttpsURLConnection connection = null;
+		String bearerToken = getBearerToken();
+		try {
+			URL apiURl = new URL("https://api.twitter.com/1.1/followers/list.json?cursor=-1&screen_name=twitterdev&skip_status=true&include_user_entities=false");
+			connection = (HttpsURLConnection) apiURl.openConnection();  
+			
+			// Helper method to establish the connection with the specified method: GET/POST
+			establishConnection(connection, bearerToken, "GET");
+			
+			
+			JSONObject obj2 = (JSONObject) JSONValue.parse(getResponse(connection));
+			JSONArray obj = (JSONArray) obj2.get("users");
+			System.out.println(obj2);
+			if (obj != null) {
+				String[][] followers = new String[obj.size()][2];
+				for(int i = 0; i < followers.length; i++) {
+					followers[i] = new String[2];
+					followers[i][0] = ((JSONObject)obj.get(i)).get("name").toString();
+					followers[i][1] = ((JSONObject)obj.get(i)).get("screen_name").toString();
+				}
+				return followers;
 			}
 			return null;
 		}

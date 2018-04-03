@@ -4,25 +4,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Karaf/Twitter assignment</title>
+<title>Insert title here</title>
 </head>
 <body>
   	<jsp:include page="topHeader.jsp"></jsp:include>
   	
-  	<h3>tweet-search API</h3>
+  	<h3>followers API</h3>
   	
-  		
-	<%	String[][] tweets = ((String[][])request.getAttribute("searchedTweets"));
+  	
+	<%	String[][] followers = ((String[][])request.getAttribute("follower"));
 		String output = "";%>
-	<%	if (tweets == null || tweets.length == 0) {
-			output = "No tweets found";
+	<%	if (followers == null || followers.length == 0) {
+			output = "No followers";
 		} else {
-			for(String[] tweet : tweets) {
-				output += tweet[0] + " created on " + tweet[1] + "<br><br>";
+			for(String[] follower : followers) {
+				output += "Name: " +  follower[0] + " Screen_name: " + follower[1] + "<br><br>";
 			}
 		} %>
-	<%= output %>  		
+	<%= output %>  	
+  	
 
 </body>
 </html>
-

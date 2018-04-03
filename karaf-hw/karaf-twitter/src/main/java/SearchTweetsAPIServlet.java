@@ -21,10 +21,8 @@ public class SearchTweetsAPIServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	String enteredTweet = request.getParameter("tweet");
     	String[][] result = TwitterUtils.getSearchedTweets(enteredTweet);
-    	System.out.println(result[1][1]);
     	request.setAttribute("searchedTweets", result);
 		request.getServletContext().getRequestDispatcher("/WEB-INF/tweetSearchResult.jsp").forward(request, response);
-	
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
