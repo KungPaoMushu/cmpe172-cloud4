@@ -16,8 +16,8 @@ public class TrendingAPIServlet extends HttpServlet {
     }
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Integer count = Integer.parseInt(request.getParameter("count"));
-		String[][] twitterResponse = TwitterUtils.getTrendingTweets(1, count);
+		Integer numberOfTopic = Integer.parseInt(request.getParameter("numberOfTopic"));
+		String[][] twitterResponse = TwitterUtils.getTrendingTweets(1, numberOfTopic);
 		request.setAttribute("result", twitterResponse);
 		request.getServletContext().getRequestDispatcher("/WEB-INF/trendingResult.jsp").forward(request, response);
 	}
