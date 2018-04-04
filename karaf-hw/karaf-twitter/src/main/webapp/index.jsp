@@ -1,4 +1,7 @@
 <!-- Author: Jie Peng Hu -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Karaf/Twitter assignment</title>
@@ -16,27 +19,32 @@
 	</form>
 	
 	<h4>Search Tweet API</h4>
-	<p>Retrieves the latest tweets from the <b>input</b> box below. It implements Twitter's Search Tweets API</p> 
+	<p>Retrieves the latest tweets from the <b>input</b> box below. It implements Twitter's Get Search Tweets API</p> 
 	</form>
 		<form method="POST" action="searchtweets">
 		<input name="tweet" type="text" placeholder="Enter tweet to search">
 		<input type="submit" value="search">
 	</form>
 	
-
 	<h4> Followers API </h4>
-	<p>returns a list of your followers</p>
+	<p>Returns a list of your followers. Implements Twitter's Get Follower/List API</p>
 	<form method="POST" action="followers">
 		<input type="submit" value="DisplayFollowers">
 	</form>	
 	
-	
-
 	<h4>Trending Topic API</h4>
 	<p>Retrieves the latest <b>number</b> trending topic from Twitter's Get Trends/Place API</p>
 	<form method="POST" action="trendingtweets">
 		<input name="numberOfTopic" type="number" placeholder="Number of results" min="1" max="23" value="1">
 		<input type="submit" value="Explore Trending">
+	</form>
+
+	<h4>Users Suggestion API</h4>
+	<p>Retrieves top Twitter's user suggestion based on the input <b>topic</b> implementing Twitter's Get Users/Suggestion API</p>
+	<form method="POST" action="suggestion">
+		<input name="topic" type="text" placeholder="Enter topic" value="Sports"> 
+		<input name="resultCount" type="number" min="1" max="20" value="1">
+		<input type="submit" value="Submit Query">
 	</form>
 
 </body>

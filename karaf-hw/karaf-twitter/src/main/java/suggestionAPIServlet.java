@@ -9,23 +9,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/trendingtweets")
-public class TrendingAPIServlet extends HttpServlet {
+@WebServlet("/suggestion")
+public class suggestionAPIServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-      
-    public TrendingAPIServlet() {
+       
+    public suggestionAPIServlet() {
         super();
     }
-    
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Integer numberOfTopic = Integer.parseInt(request.getParameter("numberOfTopic"));
-		String[][] twitterResponse = TwitterUtils.getTrendingTweets(1, numberOfTopic);
-		request.setAttribute("result", twitterResponse);
-		request.getServletContext().getRequestDispatcher("/WEB-INF/trendingResult.jsp").forward(request, response);
+		String topic = request.getParameter("topic");
+		Integer numberOfResults = Integer.parseInt(request.getParameter("resultCount"));
+		String[][] twitterResponseForSlug = TwitterUtils.getUsersSuggestionList(topic, numberOfResults);
+		request.setAttribute("result", twitterResponseForSlug);
+		request.getServletContext().getRequestDispatcher("/WEB-INF/userSuggestionResult.jsp").forward(request, response);
 	}
-	
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 }
