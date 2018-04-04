@@ -80,7 +80,6 @@ public class TwitterUtils {
 			// Helper method to establish the connection with the specified method: GET/POST
 			establishConnection(connection, bearerToken, "GET");
 			
-			
 		    //JSON parser reads extracts the necessary information from the results JSON object
 			JSONObject obj2 = (JSONObject) JSONValue.parse(getResponse(connection));
 			JSONArray obj = (JSONArray) obj2.get("statuses");
@@ -238,17 +237,54 @@ public class TwitterUtils {
 			establishConnection(connection, bearerToken, "GET");
 			JSONArray resultsObj = (JSONArray)JSONValue.parse(getResponse(connection));			
 			JSONArray trendsObj = (JSONArray)JSONValue.parse(((JSONObject)resultsObj.get(0)).get("trends").toString());
-			System.out.println(((JSONObject)resultsObj.get(0)).get("trends").toString());
+//			System.out.println(((JSONObject)resultsObj.get(0)).get("trends").toString());
 			
-			String[][] trendingInformation = new String[count][4];
-			for (int i = 0 ; i < trendingInformation.length ; i++) {
-				trendingInformation[i][0] = ((JSONObject)resultsObj.get(0)).get("as_of").toString();
-				trendingInformation[i][1] = ((JSONObject)resultsObj.get(0)).get("trends").toString();
-				trendingInformation[i][2] = ((JSONObject)trendsObj.get(i)).get("name").toString();
-				trendingInformation[i][3] = ((JSONObject)trendsObj.get(i)).get("url").toString();
-//				System.out.println(trendingInformation[i][2] + "\n" + trendingInformation[i][3]);
+			if (resultsObj != null) {
+				String[][] trendingInformation = new String[count][4];
+				for (int i = 0 ; i < trendingInformation.length ; i++) {
+					trendingInformation[i][0] = ((JSONObject)resultsObj.get(0)).get("as_of").toString();
+					trendingInformation[i][1] = ((JSONObject)resultsObj.get(0)).get("trends").toString();
+					trendingInformation[i][2] = ((JSONObject)trendsObj.get(i)).get("name").toString();
+					trendingInformation[i][3] = ((JSONObject)trendsObj.get(i)).get("url").toString();
+//					System.out.println(trendingInformation[i][2] + "\n" + trendingInformation[i][3]);
+				}
+				return trendingInformation;
 			}
-			return trendingInformation;
+			return null;
+		} finally {
+			if (connection != null) {
+				connection.disconnect();
+			}
+		}
+	}
+	
+	/**
+	 * Author: Jie Peng Hu
+	 * @param slug
+	 * @param count
+	 * @return suggestionSlug: array results
+	 * @throws IOException
+	 */
+	public static String[][] getUsersSuggestionList(String slug, Integer count) throws IOException {
+		HttpsURLConnection connection = null;
+		String bearerToken = getBearerToken();
+		try {
+			URL apiURL = new URL("https://api.twitter.com/1.1/users/suggestions/"+slug+".json");
+			connection = (HttpsURLConnection)apiURL.openConnection();
+			establishConnection(connection, bearerToken, "GET");
+			JSONObject resultsObj = (JSONObject)JSONValue.parse(getResponse(connection));
+			JSONArray suggestionObj = (JSONArray) resultsObj.get("users");
+			if (suggestionObj != null) {
+				String[][] suggestionSlug = new String[count][3];
+				for (int i = 0 ; i < count ; i++) {
+					suggestionSlug[i][0] = ((JSONObject)suggestionObj.get(i)).get("name").toString();
+					suggestionSlug[i][1] = ((JSONObject)suggestionObj.get(i)).get("profile_image_url").toString();
+					suggestionSlug[i][2] = ((JSONObject)suggestionObj.get(i)).get("followers_count").toString();
+				}
+				return suggestionSlug;
+			} else {
+				return null;
+			}
 		} finally {
 			if (connection != null) {
 				connection.disconnect();

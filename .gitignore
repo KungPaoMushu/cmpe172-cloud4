@@ -14,3 +14,4 @@ Config.java
 .DS_Store
 
 karaf-twitter/target/
+target/

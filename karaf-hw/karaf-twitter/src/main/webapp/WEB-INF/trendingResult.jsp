@@ -11,7 +11,7 @@
 	<h3>Trending Topic On Twitter</h3>
 	<% String[][] results = ((String[][])request.getAttribute("result")); 
 	   String output = ""; %>
-	<% if (results.length == 0) {
+	<% if (results == null) {
 		   output = "No results";
 	   }else {
 		   output += "Trending Topic as of: " + results[0][0];
