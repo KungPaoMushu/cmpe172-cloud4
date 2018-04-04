@@ -110,11 +110,11 @@ public class TwitterUtils {
 	 * @return list of followers
 	 * @throws IOException
 	 */
-	public static String[][] getFollowers() throws IOException{
+	public static String[][] getFollowers(String username) throws IOException{
 		HttpsURLConnection connection = null;
 		String bearerToken = getBearerToken();
 		try {
-			URL apiURl = new URL("https://api.twitter.com/1.1/followers/list.json?cursor=-1&screen_name=twitterdev&skip_status=true&include_user_entities=false");
+			URL apiURl = new URL("https://api.twitter.com/1.1/followers/list.json?cursor=-1&screen_name="+ username +"&skip_status=true&include_user_entities=false");
 			connection = (HttpsURLConnection) apiURl.openConnection();  
 			
 			// Helper method to establish the connection with the specified method: GET/POST
@@ -132,6 +132,84 @@ public class TwitterUtils {
 					followers[i][1] = ((JSONObject)obj.get(i)).get("screen_name").toString();
 				}
 				return followers;
+			}
+			return null;
+		}
+		catch (MalformedURLException e) {
+			throw new IOException("URL could not be resolved.", e);
+		}
+		finally {
+			if (connection != null) {
+				connection.disconnect();
+			}
+		}
+	}
+	
+	/**
+	 * Author: Cameron 
+	 * @return list of friends
+	 * @throws IOException
+	 */
+	public static String[][] getFriends(String username) throws IOException{
+		HttpsURLConnection connection = null;
+		String bearerToken = getBearerToken();
+		try {
+			URL apiURl = new URL("https://api.twitter.com/1.1/friends/list.json?cursor=-1&screen_name="+ username +"&skip_status=true&include_user_entities=false");
+			connection = (HttpsURLConnection) apiURl.openConnection();  
+			
+			// Helper method to establish the connection with the specified method: GET/POST
+			establishConnection(connection, bearerToken, "GET");
+			
+			
+			JSONObject obj2 = (JSONObject) JSONValue.parse(getResponse(connection));
+			JSONArray obj = (JSONArray) obj2.get("users");
+			System.out.println(obj2);
+			if (obj != null) {
+				String[][] friends = new String[obj.size()][2];
+				for(int i = 0; i < friends.length; i++) {
+					friends[i] = new String[2];
+					friends[i][0] = ((JSONObject)obj.get(i)).get("name").toString();
+					friends[i][1] = ((JSONObject)obj.get(i)).get("screen_name").toString();
+				}
+				return friends;
+			}
+			return null;
+		}
+		catch (MalformedURLException e) {
+			throw new IOException("URL could not be resolved.", e);
+		}
+		finally {
+			if (connection != null) {
+				connection.disconnect();
+			}
+		}
+	}
+	
+	/**
+	 * Author: Cameron 
+	 * @return list of friends
+	 * @throws IOException
+	 */
+	public static String[][] getFavorites(String username) throws IOException{
+		HttpsURLConnection connection = null;
+		String bearerToken = getBearerToken();
+		try {
+			URL apiURl = new URL("https://api.twitter.com/1.1/favorites/list.json?count=25&screen_name="+username);
+			connection = (HttpsURLConnection) apiURl.openConnection();  
+			
+			// Helper method to establish the connection with the specified method: GET/POST
+			establishConnection(connection, bearerToken, "GET");
+			
+			JSONArray obj = (JSONArray)JSONValue.parse(getResponse(connection));
+			System.out.println(obj);
+			if (obj != null) {
+				String[][] favorites = new String[obj.size()][2];
+				for(int i = 0; i < favorites.length; i++) {
+					favorites[i] = new String[2];
+					favorites[i][0] = ((JSONObject)obj.get(i)).get("text").toString();
+					favorites[i][1] = ((JSONObject)obj.get(i)).get("created_at").toString();
+				}
+				return favorites;
 			}
 			return null;
 		}
