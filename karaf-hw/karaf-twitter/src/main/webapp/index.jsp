@@ -27,11 +27,26 @@
 	</form>
 	
 	<h4> Followers API </h4>
-	<p>Returns a list of your followers. Implements Twitter's Get Follower/List API</p>
+	<p>Returns a list of specified user followers. Implements Twitter's Get Follower/List API</p>
 	<form method="POST" action="followers">
+		<input name="username" type="text" placeholder="Enter username">
 		<input type="submit" value="DisplayFollowers">
 	</form>	
 	
+	<h4> Following API </h4>
+	<p>Returns a list of friends for the specified user</p>
+	<form method="POST" action="following">
+		<input name="username" type="text" placeholder="Enter username">
+		<input type="submit" value="DisplayFollowing">
+	</form>	
+	
+	<h4> Favorites API </h4>
+	<p>Returns the recent Tweets liked by specified user </p>
+	<form method="POST" action="favorites">
+		<input name="username" type="text" placeholder="Enter username">
+		<input type="submit" value="DisplayFavorites">
+	</form>	
+
 	<h4>Trending Topic API</h4>
 	<p>Retrieves the latest <b>number</b> trending topic from Twitter's Get Trends/Place API</p>
 	<form method="POST" action="trendingtweets">

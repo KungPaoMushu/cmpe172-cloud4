@@ -1,4 +1,4 @@
-<!-- Author: ibrahim -->
+<!-- Author: Cameron -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,18 +8,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-  	<jsp:include page="topHeader.jsp"></jsp:include>
-  	
-  	<h3>Followers API</h3>
+  	<h3> Following API</h3>
   	
   	
-	<%	String[][] followers = ((String[][])request.getAttribute("follower"));
+	<%	String[][] friends = ((String[][])request.getAttribute("following"));
 		String output = "";%>
-	<%	if (followers == null || followers.length == 0) {
+	<%	if (friends == null || friends.length == 0) {
 			output = "No followers";
 		} else {
-			for(String[] follower : followers) {
-				output += "Name: " +  follower[0] + " Screen_name: " + follower[1] + "<br><br>";
+			for(String[] following : friends) {
+				output += "Name: " +  following[0] + " Screen_name: " + following[1] + "<br><br>";
 			}
 		} %>
 	<%= output %>  	
