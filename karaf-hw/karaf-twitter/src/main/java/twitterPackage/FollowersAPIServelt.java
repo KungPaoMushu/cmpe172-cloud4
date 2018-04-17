@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/followers")
 public class FollowersAPIServelt  extends HttpServlet {
 	
 	public FollowersAPIServelt(){

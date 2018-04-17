@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/following")
 public class FollowingAPIServelt extends HttpServlet {
 	public FollowingAPIServelt(){
 		super();
