@@ -1,7 +1,90 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
 
-<web-app>
   <display-name>Archetype Created Web Application</display-name>
+     
+    <!--             servelt 1                  -->
+    <!--                               -->
+     <servlet>
+        <servlet-name>servelt1</servlet-name>
+        <servlet-class>twitterPackage.FavoritesAPIServelt</servlet-class>
+    </servlet> 
+    <servlet-mapping>
+        <servlet-name>servelt1</servlet-name>
+        <url-pattern>/favorites</url-pattern>
+    </servlet-mapping>
+   
+    <!--               servelt 2                -->
+    <!--                               -->
+     <servlet>
+        <servlet-name>servelt2</servlet-name>
+        <servlet-class>twitterPackage.FollowersAPIServelt</servlet-class>
+    </servlet> 
+    <servlet-mapping>
+        <servlet-name>servelt2</servlet-name>
+        <url-pattern>/followers</url-pattern>
+    </servlet-mapping>
+    
+    <!--              servelt 3                 -->
+    <!--                               -->
+     <servlet>
+        <servlet-name>servelt3</servlet-name>
+        <servlet-class>twitterPackage.FollowingAPIServelt</servlet-class>
+    </servlet> 
+    <servlet-mapping>
+        <servlet-name>servelt3</servlet-name>
+        <url-pattern>/following</url-pattern>
+    </servlet-mapping>
+    
+    <!--            servelt 4                   -->
+    <!--                               -->
+     <servlet>
+        <servlet-name>servelt4</servlet-name>
+        <servlet-class>twitterPackage.SearchTweetsAPIServlet</servlet-class>
+    </servlet> 
+    <servlet-mapping>
+        <servlet-name>servelt4</servlet-name>
+        <url-pattern>/searchtweets</url-pattern>
+    </servlet-mapping>
+    
+    <!--             servelt 5                  -->
+    <!--                               -->
+    <servlet>
+        <servlet-name>servelt5</servlet-name>
+        <servlet-class>twitterPackage.suggestionAPIServlet</servlet-class>
+    </servlet> 
+    <servlet-mapping>
+        <servlet-name>servelt5</servlet-name>
+        <url-pattern>/suggestion</url-pattern>
+    </servlet-mapping>
+    
+    <!--        servelt 6                       -->
+    <!--                               -->
+    <servlet>
+        <servlet-name>servelt6</servlet-name>
+        <servlet-class>twitterPackage.TimelineAPIServlet</servlet-class>
+    </servlet> 
+    <servlet-mapping>
+        <servlet-name>servelt6</servlet-name>
+        <url-pattern>/timelinetweets</url-pattern>
+    </servlet-mapping>
+    
+    <!--              servelt 7                 -->
+    <!--                               -->
+    <servlet>
+        <servlet-name>servelt7</servlet-name>
+        <servlet-class>twitterPackage.TrendingAPIServlet</servlet-class>
+    </servlet> 
+    <servlet-mapping>
+        <servlet-name>servelt7</servlet-name>
+        <url-pattern>/trendingtweets</url-pattern>
+    </servlet-mapping>
+    
+    <!--         servelt 8                      -->
+    <!--                               -->
+
 </web-app>
+

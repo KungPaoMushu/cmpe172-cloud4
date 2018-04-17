@@ -1,3 +1,4 @@
+package twitterPackage;
 /**
  * Author: Ibrahim Ibrahim
  * Get search recent tweets
