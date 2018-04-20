@@ -65,7 +65,7 @@
 	<h4>Retweets API</h4>
 	<p>returns all retweets belonging to user</p>
 	<form method="POST" action="retweets">
-		<input type="submit" value="Find retweets">
+		<input type="submit" value="retweet example">
 	</form>
 
 

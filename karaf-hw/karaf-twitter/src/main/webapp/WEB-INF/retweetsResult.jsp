@@ -18,7 +18,7 @@
 			output = "No tweets found";
 		} else {
 			for(String[] retweet : retweets) {
-				output += retweet[0] + ":<br>&nbsp;&nbsp;"  + "Created On: " + retweet[1] + "<br><br>";
+				output +=  retweet[0] + ":<br>&nbsp;&nbsp;"  + "Created On: " + retweet[1] + "<br><br>";
 			}
 		} %>
 	<%= output %>  		
