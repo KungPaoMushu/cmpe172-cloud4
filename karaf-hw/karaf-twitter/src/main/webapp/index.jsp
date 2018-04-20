@@ -62,5 +62,12 @@
 		<input type="submit" value="Submit Query">
 	</form>
 
+	<h4>Retweets API</h4>
+	<p>returns all retweets belonging to user</p>
+	<form method="POST" action="retweets">
+		<input type="submit" value="Find retweets">
+	</form>
+
+
 </body>
 </html>

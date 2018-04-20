@@ -85,6 +85,14 @@
     
     <!--         servelt 8                      -->
     <!--                               -->
-
+    <servlet>
+        <servlet-name>servelt8</servlet-name>
+        <servlet-class>twitterPackage.RetweetsAPIServelt</servlet-class>
+    </servlet> 
+    <servlet-mapping>
+        <servlet-name>servelt8</servlet-name>
+        <url-pattern>/retweets</url-pattern>
+    </servlet-mapping>
+    
 </web-app>
 
