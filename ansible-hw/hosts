@@ -1,2 +1,0 @@
-[mywebserver]
-18.216.175.136 ansible_ssh_private_key_file=/home/whw/gitclones/cmpe172-cloud4/ansible-hw/ansible-server.pem

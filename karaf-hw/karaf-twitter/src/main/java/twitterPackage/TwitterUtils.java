@@ -150,11 +150,12 @@ public class TwitterUtils {
 	 * @return - returns all retweets.
 	 * @throws IOException
 	 */
-	public static String[][] getRetweets() throws IOException{
+	public static String[][] getRetweets(String userInput) throws IOException{
 		HttpsURLConnection connection = null;
+		HttpsURLConnection connection1 = null;
 		String bearerToken = getBearerToken();
 		try {
-			URL apiURl = new URL("https://api.twitter.com/1.1/statuses/retweets/509457288717819904.json");
+			URL apiURl = new URL("https://api.twitter.com/1.1/statuses/retweets/850006245121695744.json");
 			connection = (HttpsURLConnection) apiURl.openConnection();  
 
 			// Helper method to establish the connection with the specified method: GET/POST

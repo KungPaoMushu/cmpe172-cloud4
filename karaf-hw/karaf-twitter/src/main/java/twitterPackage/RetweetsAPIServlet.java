@@ -12,15 +12,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class RetweetsAPIServelt extends HttpServlet {
+public class RetweetsAPIServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public RetweetsAPIServelt() {
+    public RetweetsAPIServlet() {
         super();
     }
 	
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	String[][] result = TwitterUtils.getRetweets();
+    	String userInput = request.getParameter("userInput");
+    	String[][] result = TwitterUtils.getRetweets(userInput);
     	request.setAttribute("retweets", result);
 		request.getServletContext().getRequestDispatcher("/WEB-INF/retweetsResult.jsp").forward(request, response);
 	}

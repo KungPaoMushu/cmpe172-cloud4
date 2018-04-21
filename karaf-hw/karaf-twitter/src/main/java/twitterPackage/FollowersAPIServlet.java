@@ -1,8 +1,10 @@
 package twitterPackage;
 /**
- * Author: Cameron
- * Servlet for retrieving favorite tweets
+ * Author: Ibrahim Ibrahim
+ * Get followers
  */
+
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,17 +12,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class FavoritesAPIServelt  extends HttpServlet {
+public class FollowersAPIServlet  extends HttpServlet {
 	
-	public FavoritesAPIServelt(){
+	public FollowersAPIServlet(){
 		super();
 	}
 	
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
     	String username = request.getParameter("username");
-    	String[][] result = TwitterUtils.getFavorites(username);
-    	request.setAttribute("favorites", result);
-		request.getServletContext().getRequestDispatcher("/WEB-INF/favoritesResult.jsp").forward(request, response);
+    	String[][] result = TwitterUtils.getFollowers(username);
+    	request.setAttribute("follower", result);
+		request.getServletContext().getRequestDispatcher("/WEB-INF/followersResult.jsp").forward(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,4 +30,3 @@ public class FavoritesAPIServelt  extends HttpServlet {
 	}
 
 }
-
