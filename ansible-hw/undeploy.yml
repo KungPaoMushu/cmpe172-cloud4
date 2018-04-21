@@ -1,0 +1,16 @@
+---
+- hosts: mywebserver
+  become: yes
+  remote_user: ubuntu
+  gather_facts: no
+  
+
+tasks:
+    - name: 'stop nginx server'
+      raw: sudo systemctl stop nginx 
+    - name: 'remove non-config'
+      raw: sudo apt-get remove nginx nginx-common
+    - name: 'remove everything + config'
+      raw: sudo apt-get purge nginx nginx-common
+    - name: 'remove dependencies'
+      raw: sudo apt-get autoremove

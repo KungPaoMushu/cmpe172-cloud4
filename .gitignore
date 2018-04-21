@@ -1,0 +1,19 @@
+# Ignore random generated data from maven/eclipse
+/.metadata/
+/.recommenders/
+.recommenders/
+.metadata/
+
+# Ignore Karaf server directory
+apache-karaf-4.1.5/
+apache-karaf-4.2.0/
+apache-karaf-4*/
+
+# Ignore file that contains API Keys
+Config.java
+
+# Ignore Mac recording file
+.DS_Store
+
+karaf-twitter/target/
+target/
