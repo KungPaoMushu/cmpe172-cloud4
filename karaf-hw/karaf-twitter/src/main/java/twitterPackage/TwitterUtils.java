@@ -146,6 +146,46 @@ public class TwitterUtils {
 	}
 	
 	/**
+	 * Author: ibrahim
+	 * @return - returns all retweets.
+	 * @throws IOException
+	 */
+	public static String[][] getRetweets(String userInput) throws IOException{
+		HttpsURLConnection connection = null;
+		HttpsURLConnection connection1 = null;
+		String bearerToken = getBearerToken();
+		try {
+			URL apiURl = new URL("https://api.twitter.com/1.1/statuses/retweets/850006245121695744.json");
+			connection = (HttpsURLConnection) apiURl.openConnection();  
+
+			// Helper method to establish the connection with the specified method: GET/POST
+			establishConnection(connection, bearerToken, "GET");
+
+			
+		    //JSON parser reads extracts the necessary information from the results JSON object
+			JSONArray obj = (JSONArray)JSONValue.parse(getResponse(connection));
+			if (obj != null) {
+				String[][] tweets = new String[obj.size()][2];
+				for(int i = 0; i < tweets.length; i++) {
+					tweets[i] = new String[2];
+					tweets[i][0] = ((JSONObject)obj.get(i)).get("text").toString();
+					tweets[i][1] = ((JSONObject)obj.get(i)).get("created_at").toString();
+				}
+				return tweets;
+			}
+			return null;
+		}
+		catch (MalformedURLException e) {
+			throw new IOException("URL could not be resolved.", e);
+		}
+		finally {
+			if (connection != null) {
+				connection.disconnect();
+			}
+		}
+	}
+	
+	/**
 	 * Author: Cameron 
 	 * @return list of friends
 	 * @throws IOException
