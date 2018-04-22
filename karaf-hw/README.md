@@ -27,13 +27,13 @@ The website is able to run locally via Karaf server
 # Expected results:
 
 ## Homepage
-![Alt text](/JSON-parse-HTML/screenshots/karaf_homepage.jpg)
+![Alt text](/karaf-hw/screenshots/karaf_homepage.jpg)
 
 ## Sample request
-![Alt text](/JSON-parse-HTML/screenshots/sample1.jpg)
+![Alt text](/karaf-hw/screenshots/sample1.jpg)
 
 ## Sample results
-![Alt text](/JSON-parse-HTML/screenshots/sample1_results.png)
+![Alt text](/karaf-hw/screenshots/sample1_results.png)
 
 ## UML Class diagram
-![Alt text](/JSON-parse-HTML/screenshots/UMLTwitterAPI.png)
+![Alt text](/karaf-hw/screenshots/UMLTwitterAPI.png)
