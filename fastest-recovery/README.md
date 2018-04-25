@@ -33,7 +33,7 @@
 
       mysql> USE sakila;
       mysql> SHOW tables;
-- Expected results:
+### Expected results:
 
         +----------------------------+
         | Tables_in_sakila           |
@@ -67,7 +67,7 @@
 
       mysql> USE employees;
       mysql> SHOW tables;
-- Expected results:
+### Expected results:
 
         +----------------------+
         | Tables_in_employees  |
