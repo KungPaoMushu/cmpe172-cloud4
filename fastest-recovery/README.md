@@ -29,7 +29,7 @@
         | employees          |
         | sakila             |
         +--------------------+
-- Navigate on the 'sakila' database and see its data:
+- Navigate to the 'sakila' database and see its data:
 
       mysql> USE sakila;
       mysql> SHOW tables;
@@ -63,7 +63,7 @@
         | store                      |
         +----------------------------+
         23 rows in set (0.00 sec)
-- Navigate on the 'employees' database and see its data:
+- Navigate to the 'employees' database and see its data:
 
       mysql> USE employees;
       mysql> SHOW tables;
