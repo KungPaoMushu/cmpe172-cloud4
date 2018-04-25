@@ -21,7 +21,7 @@
 - Verify that the databases were succesfully created
 
       mysql> show databases;
-- Expected results: 
+### Expected results: 
 
         +--------------------+
         | Database           |
