@@ -2,25 +2,25 @@
 ## Setting up the database
 - Open terminal and run mysql 
     
-      $ mysql -u root 
+        $ mysql -u root 
 - Create a new database called 'sakila'
   
-      mysql> CREATE DATABASE sakila;
+        mysql> CREATE DATABASE sakila;
 - Import schema from the .sql file
 
       mysql> source sakila-mv-schema.sql;
 - Import data from the .sql file
 
-      mysql> source sakila-mv-data.sql;
+        mysql> source sakila-mv-data.sql;
 - Create a new database called 'employees'
 
-      mysql> CREATE DATABASE employees;
+        mysql> CREATE DATABASE employees;
 - Import data from the .sql file
 
-      mysql> source employees.sql;
+        mysql> source employees.sql;
 - Verify that the databases were succesfully created
 
-      mysql> show databases;
+        mysql> show databases;
 ### Expected results: 
 
         +--------------------+
@@ -31,8 +31,8 @@
         +--------------------+
 - Navigate to the 'sakila' database and see its data:
 
-      mysql> USE sakila;
-      mysql> SHOW tables;
+        mysql> USE sakila;
+        mysql> SHOW tables;
 ### Expected results:
 
         +----------------------------+
@@ -65,8 +65,8 @@
         23 rows in set (0.00 sec)
 - Navigate to the 'employees' database and see its data:
 
-      mysql> USE employees;
-      mysql> SHOW tables;
+        mysql> USE employees;
+        mysql> SHOW tables;
 ### Expected results:
 
         +----------------------+
