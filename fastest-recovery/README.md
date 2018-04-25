@@ -8,7 +8,7 @@
         mysql> CREATE DATABASE sakila;
 - Import schema from the .sql file
 
-      mysql> source sakila-mv-schema.sql;
+        mysql> source sakila-mv-schema.sql;
 - Import data from the .sql file
 
         mysql> source sakila-mv-data.sql;
