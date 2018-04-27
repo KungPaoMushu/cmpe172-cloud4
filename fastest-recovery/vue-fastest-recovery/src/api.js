@@ -21,32 +21,20 @@ export default {
       return req.data
     })
   },
-  getPosts () {
-    return this.execute('get', '/posts')
+  getActors () {
+    return this.execute('get', '/actors')
   },
-  getPost (id) {
-    return this.execute('get', `/posts/${id}`)
+  getActor (id) {
+    return this.execute('get', `/actors/${id}`)
   },
-  createPost (data) {
-    return this.execute('post', '/posts', data)
+  createActor (data) {
+    return this.execute('actor', '/actors', data)
   },
-  updatePost (id, data) {
-    return this.execute('put', `/posts/${id}`, data)
+  updateActor (id, data) {
+    return this.execute('put', `/actors/${id}`, data)
   },
-  deletePost (id) {
-    return this.execute('delete', `/posts/${id}`)
-  },
-  createTask (data) {
-    return this.execute('task', '/tasks', data)
-  },
-  getTasks () {
-    return this.execute('get', `/tasks`)
-  },
-  getTask (id) {
-    return this.execute('get', `/tasks/${id}`)
-  },
-  deleteTask (id) {
-    return this.execute('delete', `/tasks/${id}`)
+  deleteActor (id) {
+    return this.execute('delete', `/actors/${id}`)
   }
 
 }

@@ -2,7 +2,7 @@
   "development": {
     "username": "boss",
     "password": "boss123",
-    "database": "bookmarks",
+    "database": "sakila",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

@@ -16,8 +16,8 @@
           <tbody>
             <tr v-for="post in posts" :key="post.id">
               <td>{{ post.id }}</td>
-              <td>{{ post.title }}</td>
-              <td>{{ post.updatedAt }}</td>
+              <td>{{ post.first_name }}</td>
+              <td>{{ post.last_name }}</td>
               <td class="text-right">
                 <a href="#" @click.prevent="populatePostToEdit(post)">Edit</a> -
                 <a href="#" @click.prevent="deletePost(post.id)">Delete</a>
@@ -30,10 +30,10 @@
         <b-card :title="(model.id ? 'Edit Post ID#' + model.id : 'New Post')">
           <form @submit.prevent="savePost">
             <b-form-group label="Title">
-              <b-form-input type="text" v-model="model.title"></b-form-input>
+              <b-form-input type="text" v-model="model.first_name"></b-form-input>
             </b-form-group>
             <b-form-group label="Body">
-              <b-form-textarea rows="4" v-model="model.body"></b-form-textarea>
+              <b-form-textarea rows="4" v-model="model.last_name"></b-form-textarea>
             </b-form-group>
             <div>
               <b-btn type="submit" variant="success">Save Post</b-btn>
@@ -52,13 +52,7 @@ export default {
     return {
       loading: false,
       posts: [],
-      tasks: [],
-      tasking: {},
-      model: {},
-      ibmTask: {
-        id: 5,
-        title: "hi bitch",
-      }
+      model: {}
     }
   },
   async created () {
@@ -67,18 +61,19 @@ export default {
   methods: {
     async refreshPosts () {
       this.loading = true
-      this.posts = await api.getPosts()
+      this.posts = await api.getActors()
       this.loading = false
+      console.log("got actors")
+
     },
     async populatePostToEdit (post) {
       this.model = Object.assign({}, post)
     },
     async savePost () {
       if (this.model.id) {
-        await api.updatePost(this.model.id, this.model)
+        await api.updateActor(this.model.id, this.model)
       } else {
-        await api.createTask(this.ibmTask)
-        //await api.deleteTask(1)
+        await api.createActor(this.model)
       }
       this.model = {} // reset form
       await this.refreshPosts()
@@ -89,7 +84,7 @@ export default {
         if (this.model.id === id) {
           this.model = {}
         }
-        await api.deletePost(id)
+        await api.deleteActor(id)
         await this.refreshPosts()
       }
     }
