@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Homepage from '@/components/homepage'
 import Profile from '@/components/homepage'
-
+import PostsManager from '@/components/PostsManager'
 import Auth from '@okta/okta-vue'
 
 Vue.use(Router)
@@ -28,6 +28,14 @@ var router = new Router({
     {
       path: '/profile',
       component: Profile,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/posts-manager',
+      name: 'PostsManager',
+      component: PostsManager,
       meta: {
         requiresAuth: true
       }
