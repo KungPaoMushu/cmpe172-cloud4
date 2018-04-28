@@ -61,19 +61,17 @@ export default {
   methods: {
     async refreshPosts () {
       this.loading = true
-      this.posts = await api.getActors()
+      this.posts = await api.getPosts()
       this.loading = false
-      console.log("got actors")
-
     },
     async populatePostToEdit (post) {
       this.model = Object.assign({}, post)
     },
     async savePost () {
       if (this.model.id) {
-        await api.updateActor(this.model.id, this.model)
+        await api.updatePost(this.model.id, this.model)
       } else {
-        await api.createActor(this.model)
+        await api.createPost(this.model)
       }
       this.model = {} // reset form
       await this.refreshPosts()
@@ -84,7 +82,7 @@ export default {
         if (this.model.id === id) {
           this.model = {}
         }
-        await api.deleteActor(id)
+        await api.deletePost(id)
         await this.refreshPosts()
       }
     }
