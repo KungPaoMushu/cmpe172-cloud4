@@ -53,6 +53,11 @@ export default {
       loading: false,
       posts: [],
       model: {},
+      tasks: [],
+      task: {},
+      created_task: {
+        title: "ibrahim",
+      },
       actors: [],
       actor: {},
       created_actor: {
@@ -68,10 +73,17 @@ export default {
     async refreshPosts () {
       this.loading = true
       this.posts = await api.getPosts()
-      //this.actor = await api.getActor(1);
-      //console.log(this.actor)
-      this.actors = await api.getActors()
-      console.log(this.actors)
+      
+      // works
+      console.log("testinging get all tasks")
+      this.tasks = await api.getTasks()
+      console.log(this.tasks)
+
+      // does not work
+      //console.log("testinging get all actors")
+      //this.actors = await api.getActors()
+      //console.log(this.actors)
+
       this.loading = false
     },
     async populatePostToEdit (post) {
@@ -84,10 +96,13 @@ export default {
         await api.createPost(this.model)
 
         //does not work
-        //await api.createActor(this.created_actor)
+        //await api.createTask(this.created_task)
 
         // but this works
-        // await api.createPost(this.created_actor)
+        // await api.createTask(this.created_task)
+
+        // 
+        await api.createTask(this.created_task)
       }
       this.model = {} // reset form
       await this.refreshPosts()

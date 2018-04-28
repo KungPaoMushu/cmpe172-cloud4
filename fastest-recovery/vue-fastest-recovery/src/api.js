@@ -19,7 +19,11 @@ export default {
       }
     }).then(req => {
       return req.data
-    })
+    }).catch(err => {
+      console.error('error: ', err);
+    });
+
+
   },
   getPosts () {
     return this.execute('get', '/posts')
@@ -35,6 +39,21 @@ export default {
   },
   deletePost (id) {
     return this.execute('delete', `/posts/${id}`)
+  },
+  getTasks () {
+    return this.execute('get', '/tasks')
+  },
+  getTask (id) {
+    return this.execute('get', `/tasks/${id}`)
+  },
+  createTask (data) {
+    return this.execute('task', '/tasks', data)
+  },
+  updateTask (id, data) {
+    return this.execute('put', `/tasks/${id}`, data)
+  },
+  deleteTask (id) {
+    return this.execute('delete', `/tasks/${id}`)
   },
   getActors () {
     return this.execute('get', '/actors')

@@ -6,6 +6,7 @@ const epilogue = require('epilogue')
 const OktaJwtVerifier = require('@okta/jwt-verifier')
 const db = require('./models');
 const Post = db.Post;
+const Task = db.Task;
 const Actor = db.Actor;
 
 const oktaJwtVerifier = new OktaJwtVerifier({
@@ -37,11 +38,16 @@ app.use((req, res, next) => {
 })
 
 
-
 // Initialize epilogue
 epilogue.initialize({
   app: app,
   sequelize: db
+})
+
+// Create the dynamic REST resource for our Task model
+let taskResource = epilogue.resource({
+  model: Task,
+  endpoints: ['/tasks', '/tasks/:id']
 })
 
 // Create the dynamic REST resource for our Actor model
@@ -55,8 +61,6 @@ let userResource = epilogue.resource({
   model: Post,
   endpoints: ['/posts', '/posts/:id']
 })
-
-
 
 
 

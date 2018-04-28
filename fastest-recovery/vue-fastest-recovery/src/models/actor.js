@@ -21,7 +21,10 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: sequelize.fn('current_timestamp')
     }
   }, {
-    tableName: 'actor'
+    tableName: 'actor',
+    freezeTableName: true
   });
   return Actor;
 };
+
+//     tableName: 'actor'
