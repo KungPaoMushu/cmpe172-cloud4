@@ -16,8 +16,8 @@
           <tbody>
             <tr v-for="post in posts" :key="post.id">
               <td>{{ post.id }}</td>
-              <td>{{ post.first_name }}</td>
-              <td>{{ post.last_name }}</td>
+              <td>{{ post.title }}</td>
+              <td>{{ post.body }}</td>
               <td class="text-right">
                 <a href="#" @click.prevent="populatePostToEdit(post)">Edit</a> -
                 <a href="#" @click.prevent="deletePost(post.id)">Delete</a>
@@ -30,10 +30,10 @@
         <b-card :title="(model.id ? 'Edit Post ID#' + model.id : 'New Post')">
           <form @submit.prevent="savePost">
             <b-form-group label="Title">
-              <b-form-input type="text" v-model="model.first_name"></b-form-input>
+              <b-form-input type="text" v-model="model.title"></b-form-input>
             </b-form-group>
             <b-form-group label="Body">
-              <b-form-textarea rows="4" v-model="model.last_name"></b-form-textarea>
+              <b-form-textarea rows="4" v-model="model.body"></b-form-textarea>
             </b-form-group>
             <div>
               <b-btn type="submit" variant="success">Save Post</b-btn>
@@ -52,7 +52,12 @@ export default {
     return {
       loading: false,
       posts: [],
-      model: {}
+      model: {},
+      actors: [],
+      created_actor: {
+        first_name: "ibrahim",
+        last_name: "ibrahim"
+      }
     }
   },
   async created () {
@@ -62,6 +67,8 @@ export default {
     async refreshPosts () {
       this.loading = true
       this.posts = await api.getPosts()
+      this.actors = await api.getActors()
+      console.log(this.actors)
       this.loading = false
     },
     async populatePostToEdit (post) {
@@ -72,6 +79,12 @@ export default {
         await api.updatePost(this.model.id, this.model)
       } else {
         await api.createPost(this.model)
+
+        //does not work
+        //await api.createActor(this.created_actor)
+
+        // but this works
+        // await api.createPost(this.created_actor)
       }
       this.model = {} // reset form
       await this.refreshPosts()

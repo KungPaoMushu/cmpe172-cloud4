@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  var Post =  sequelize.define('post', {
+  var Post =  sequelize.define('Post', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -24,8 +24,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: false
     }
-  }, {
-    tableName: 'Posts'
-  });
+  }, {});
   return Post;
 };
