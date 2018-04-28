@@ -54,6 +54,7 @@ export default {
       posts: [],
       model: {},
       actors: [],
+      actor: {},
       created_actor: {
         first_name: "ibrahim",
         last_name: "ibrahim"
@@ -67,6 +68,8 @@ export default {
     async refreshPosts () {
       this.loading = true
       this.posts = await api.getPosts()
+      //this.actor = await api.getActor(1);
+      //console.log(this.actor)
       this.actors = await api.getActors()
       console.log(this.actors)
       this.loading = false
