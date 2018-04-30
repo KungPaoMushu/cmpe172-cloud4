@@ -59,7 +59,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: sequelize.fn('current_timestamp')
     }
   }, {
-    tableName: 'staff'
+    tableName: 'staff',
+    timestamps: false
   });
   
 //  Staff.associate = function(models) {

@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('actor_info', {
+  var actor_info =  sequelize.define('actor_info', {
     actor_id: {
       type: DataTypes.INTEGER(5).UNSIGNED,
       allowNull: false,
@@ -20,6 +20,19 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'actor_info'
+    tableName: 'actor_info',
+    timestamps: false
   });
+
+/*
+  actor_info.associate = function(models) {
+    actor_info.belongsTo(models.actor,{
+     foreignKey: 'actor_id',
+     onDelete: 'CASCADE',
+     onUpdate: 'CASCADE'
+   });
+  };
+*/
+
+  return actor_info;
 };

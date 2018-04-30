@@ -51,6 +51,7 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: sequelize.fn('current_timestamp')
     }
   }, {
-    tableName: 'customer'
+    tableName: 'customer',
+    timestamps: false
   });
 };

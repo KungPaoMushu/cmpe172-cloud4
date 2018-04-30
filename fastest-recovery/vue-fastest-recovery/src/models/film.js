@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('film', {
+  var film = sequelize.define('film', {
     film_id: {
       type: DataTypes.INTEGER(5).UNSIGNED,
       allowNull: false,
@@ -70,6 +70,9 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: sequelize.fn('current_timestamp')
     }
   }, {
-    tableName: 'film'
+    tableName: 'film',
+    timestamps: false
   });
+
+  return film;
 };

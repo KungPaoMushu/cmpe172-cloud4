@@ -1,11 +1,13 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var Actor = sequelize.define('Actor', {
+  var actor =  sequelize.define('actor', {
     actor_id: {
       type: DataTypes.INTEGER(5).UNSIGNED,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
     },
     first_name: {
       type: DataTypes.STRING(45),
@@ -22,9 +24,19 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     tableName: 'actor',
-    freezeTableName: true
+    timestamps: false
   });
-  return Actor;
+
+
+  actor.associate = function(models) {
+    actor.hasMany(models.film_actor,{
+     foreignKey: 'actor_id',
+     onDelete: 'CASCADE',
+     onUpdate: 'CASCADE' 
+   });
+  };
+
+  return actor
 };
 
 //     tableName: 'actor'

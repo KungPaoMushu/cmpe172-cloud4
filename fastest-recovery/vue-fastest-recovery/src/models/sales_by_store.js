@@ -15,6 +15,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'sales_by_store'
+    tableName: 'sales_by_store',
+    timestamps: false
   });
 };

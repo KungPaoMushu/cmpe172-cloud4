@@ -38,6 +38,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'nicer_but_slower_film_list'
+    tableName: 'nicer_but_slower_film_list',
+    timestamps: false
   });
 };

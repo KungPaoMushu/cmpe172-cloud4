@@ -25,21 +25,6 @@ export default {
 
 
   },
-  getPosts () {
-    return this.execute('get', '/posts')
-  },
-  getPost (id) {
-    return this.execute('get', `/posts/${id}`)
-  },
-  createPost (data) {
-    return this.execute('post', '/posts', data)
-  },
-  updatePost (id, data) {
-    return this.execute('put', `/posts/${id}`, data)
-  },
-  deletePost (id) {
-    return this.execute('delete', `/posts/${id}`)
-  },
   getTasks () {
     return this.execute('get', '/tasks')
   },
@@ -69,5 +54,33 @@ export default {
   },
   deleteActor (id) {
     return this.execute('delete', `/actors/${id}`)
+  },
+  getPosts () {
+    return this.execute('get', '/posts')
+  },
+  getPost (id) {
+    return this.execute('get', `/posts/${id}`)
+  },
+  createPost (data) {
+    return this.execute('post', '/posts', data)
+  },
+  updatePost (id, data) {
+    return this.execute('put', `/posts/${id}`, data)
+  },
+  deletePost (id) {
+    return this.execute('delete', `/posts/${id}`)
+  },
+  getFilm(id) {
+    return this.execute('get', `/films/${id}`)
+  },
+  getFilms () {
+    return this.execute('get', '/films')
+  },
+  getRental (id) {
+    return this.execute('get', `/rentals/${id}`)
+  },
+  getRentals () {
+    return this.execute('get', '/rentals')
   }
+
 }

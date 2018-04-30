@@ -46,6 +46,7 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: sequelize.fn('current_timestamp')
     }
   }, {
-    tableName: 'payment'
+    tableName: 'payment',
+    timestamps: false
   });
 };

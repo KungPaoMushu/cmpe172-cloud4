@@ -36,6 +36,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   }, {
-    tableName: 'staff_list'
+    tableName: 'staff_list',
+    timestamps: false
   });
 };

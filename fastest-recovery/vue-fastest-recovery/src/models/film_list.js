@@ -38,6 +38,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'film_list'
+    tableName: 'film_list',
+    timestamps: false
   });
 };

@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('film_actor', {
+  var film_actor = sequelize.define('film_actor', {
     actor_id: {
       type: DataTypes.INTEGER(5).UNSIGNED,
       allowNull: false,
@@ -9,7 +9,9 @@ module.exports = function(sequelize, DataTypes) {
       references: {
         model: 'actor',
         key: 'actor_id'
-      }
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
     },
     film_id: {
       type: DataTypes.INTEGER(5).UNSIGNED,
@@ -26,6 +28,17 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: sequelize.fn('current_timestamp')
     }
   }, {
-    tableName: 'film_actor'
+    tableName: 'film_actor',
+    timestamps: false
   });
+
+  film_actor.associate = function(models) {
+    film_actor.belongsTo(models.actor,{
+     foreignKey: 'actor_id',
+     onDelete: 'CASCADE',
+     onUpdate: 'CASCADE'
+   });
+  };
+
+  return film_actor;
 };

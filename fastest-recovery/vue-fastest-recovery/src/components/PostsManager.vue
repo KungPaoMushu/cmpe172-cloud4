@@ -17,7 +17,7 @@
             <tr v-for="post in posts" :key="post.id">
               <td>{{ post.id }}</td>
               <td>{{ post.title }}</td>
-              <td>{{ post.body }}</td>
+              <td>{{ post.updatedAt }}</td>
               <td class="text-right">
                 <a href="#" @click.prevent="populatePostToEdit(post)">Edit</a> -
                 <a href="#" @click.prevent="deletePost(post.id)">Delete</a>
@@ -47,17 +47,14 @@
 
 <script>
 import api from '@/api'
+import axios from 'axios';
+
 export default {
   data () {
     return {
       loading: false,
       posts: [],
       model: {},
-      tasks: [],
-      task: {},
-      created_task: {
-        title: "ibrahim",
-      },
       actors: [],
       actor: {},
       created_actor: {
@@ -74,16 +71,12 @@ export default {
       this.loading = true
       this.posts = await api.getPosts()
       
-      // works
-      console.log("testinging get all tasks")
-      this.tasks = await api.getTasks()
-      console.log(this.tasks)
-
-      // does not work
-      //console.log("testinging get all actors")
-      //this.actors = await api.getActors()
-      //console.log(this.actors)
-
+      console.log("testinging get all actors")
+      this.actors = await api.getActors()
+      console.log("testinging get all films")
+      console.log(await api.getFilms())
+      console.log("testinging get all rentals")
+      console.log(await api.getRentals())
       this.loading = false
     },
     async populatePostToEdit (post) {
@@ -95,14 +88,10 @@ export default {
       } else {
         await api.createPost(this.model)
 
-        //does not work
+        //does not work due to Authorization header is required
         //await api.createTask(this.created_task)
-
-        // but this works
-        // await api.createTask(this.created_task)
-
-        // 
-        await api.createTask(this.created_task)
+        //does not work
+        //await api.createActor(this.created_actor)
       }
       this.model = {} // reset form
       await this.refreshPosts()
@@ -115,6 +104,9 @@ export default {
         }
         await api.deletePost(id)
         await this.refreshPosts()
+
+        // does not work due to foreign key constraint, 
+        //await api.deleteActor(200)
       }
     }
   }

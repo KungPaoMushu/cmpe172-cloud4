@@ -41,6 +41,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   }, {
-    tableName: 'customer_list'
+    tableName: 'customer_list',
+    timestamps: false
   });
 };

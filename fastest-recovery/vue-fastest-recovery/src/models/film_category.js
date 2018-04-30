@@ -26,6 +26,7 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: sequelize.fn('current_timestamp')
     }
   }, {
-    tableName: 'film_category'
+    tableName: 'film_category',
+    timestamps: false
   });
 };
