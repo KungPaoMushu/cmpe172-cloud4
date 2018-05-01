@@ -1,29 +1,22 @@
 <template>
   <v-app>
-    <navbar @login="login" @logout="logout" :authenticated="authenticated"></navbar>
+    <sidebar v-if="authenticated"></sidebar>
+    <navbar @login="login" @logout="logout"></navbar>
     <v-content>
       <router-view/>
     </v-content>
     </v-navigation-drawer>
-    <v-footer fixed app>
-      <span>&copy; Cloud4, 2018</span>
-    </v-footer>
   </v-app>
 </template>
 
 <script>
   import Navbar from './components/core/navbar'
+  import Sidebar from './components/core/sidebar'
   export default {
     name: 'app',
-    data () {
-      return {
-        activeUser: null
-      }
-    },
     computed: {
       authenticated () {
-        console.log(this.activeUser)
-        return this.activeUser !== null && this.activeUser !== undefined
+        return this.$store.getters.authenticated
       }
     },
     async created () {
@@ -38,7 +31,8 @@
         this.$auth.loginRedirect()
       },
       async refreshActiveUser () {
-        this.activeUser = await this.$auth.getUser()
+        var activeUser = await this.$auth.getUser()
+        this.$store.commit('setUser', activeUser)
       },
       async logout () {
         await this.$auth.logout()
@@ -47,7 +41,8 @@
       }
     },
     components: {
-      'navbar': Navbar
+      'navbar': Navbar,
+      'sidebar': Sidebar
     }
   }
 </script>
