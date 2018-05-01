@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Vue from 'vue'
 import axios from 'axios'
 
@@ -22,8 +23,6 @@ export default {
     }).catch(err => {
       console.error('error: ', err);
     });
-
-
   },
   getPosts () {
     return this.execute('get', '/posts')
@@ -72,6 +71,9 @@ export default {
   },
   getSalaries () {
     return this.execute('get', '/salaries')
+  },
+  getEmployeeSalaries (id) {
+    return this.execute('get', `/salaries?emp_no=${id}`)
   },
   getTitles () {
     return this.execute('get', '/titles')

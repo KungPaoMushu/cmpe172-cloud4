@@ -9,11 +9,9 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import { store } from './store'
 
-
 Vue.use(Vuetify)
 Vue.config.productionTip = false
-Vue.use(VueAxios, axios);
-
+Vue.use(VueAxios, axios)
 
 /* eslint-disable no-new */
 new Vue({

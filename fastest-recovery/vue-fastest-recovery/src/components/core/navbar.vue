@@ -5,7 +5,6 @@
     <v-spacer></v-spacer>
     <v-toolbar-items>
       <v-btn v-if="!authenticated" flat color="white" @click.stop="onLogin">Login</v-btn>
-      <v-btn v-if="authenticated" flat color="white" to="/profile">Profile</v-btn>
       <v-btn v-if="authenticated" flat color="white" @click.stop="onLogout">Logout</v-btn>
     </v-toolbar-items>
   </v-toolbar>

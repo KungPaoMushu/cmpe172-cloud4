@@ -5,7 +5,7 @@
     </v-card>
     <v-divider></v-divider>
     <v-list dense class="pt-0">
-      <v-list-tile v-for="item in items" :key="item.title" @click="">
+      <v-list-tile v-for="item in items" :key="item.title" @click="" :to="item.to">
         <v-list-tile-action>
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-tile-action>
@@ -22,8 +22,9 @@
     data () {
       return {
         items: [
-          { title: 'Home', icon: 'dashboard' },
-          { title: 'About', icon: 'question_answer' }
+          { title: 'Home', icon: 'dashboard', to: '/' },
+          { title: 'Employees', icon: 'people', to: '/employees' },
+          { title: 'Departments', icon: 'location_city', to: '/departments' }
         ]
       }
     },
@@ -37,7 +38,6 @@
         }
       },
       user () {
-        console.log(this.$store.getters.user)
         return this.$store.getters.user
       }
     }

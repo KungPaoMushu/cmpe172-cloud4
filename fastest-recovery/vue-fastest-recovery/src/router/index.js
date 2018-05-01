@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Homepage from '@/components/homepage'
-import Profile from '@/components/homepage'
 import PostsManager from '@/components/PostsManager'
+import Employees from '@/components/admin/employees'
+import Departments from '@/components/admin/departments'
 import Auth from '@okta/okta-vue'
 
 Vue.use(Router)
@@ -26,8 +27,15 @@ var router = new Router({
       component: Auth.handleCallback()
     },
     {
-      path: '/profile',
-      component: Profile,
+      path: '/employees',
+      component: Employees,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/departments',
+      component: Departments,
       meta: {
         requiresAuth: true
       }

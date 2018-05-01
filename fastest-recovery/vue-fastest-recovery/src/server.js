@@ -78,31 +78,6 @@ let departmentResource = epilogue.resource({
   endpoints: ['/departments', '/departments/:id']
 })
 
-
-app.get('/api/getActors', (req,res) =>{
-  console.log("i made it ")
-  Actor.findAll(
-  {
-    where: {
-      id: 1
-    }
-  }
-  )
-  .then(actors => res.send(actors))
-  .catch(err =>  res.send(err));
-
-});
-
-function deleteActor(id){
-   
-    Actor.destroy({
-        where: {actor_id: 200}
-    })
-    .then(function(){
-            res.send({ "result": "deleted actor"});
-    })
-}
-
 // Resets the database and launches the express app on :8081
 db.sequelize.sync()
 .then(() => {
