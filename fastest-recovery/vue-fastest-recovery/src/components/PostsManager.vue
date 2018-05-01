@@ -55,12 +55,8 @@ export default {
       loading: false,
       posts: [],
       model: {},
-      actors: [],
-      actor: {},
-      created_actor: {
-        first_name: "ibrahim",
-        last_name: "ibrahim"
-      }
+      employees: [],
+      employee: {}
     }
   },
   async created () {
@@ -71,15 +67,14 @@ export default {
       this.loading = true
       this.posts = await api.getPosts()
       
-      console.log("testinging get all actors")
-      this.actors = await api.getActors()
-      console.log("testinging get all films")
-      console.log(await api.getFilms())
-      console.log("testinging get all rentals")
-      console.log(await api.getRentals())
-      console.log("testinging get all users")
-      console.log(await api.getUsers())
-
+      console.log("testinging get all employees")
+      console.log(await api.getEmployees())
+      console.log("testinging get all departments")
+      console.log(await api.getDepartments())
+      console.log("testinging get all titles")
+      console.log(await api.getTitles())
+      console.log("testinging get all salaries")
+      console.log(await api.getSalaries())
 
       this.loading = false
     },

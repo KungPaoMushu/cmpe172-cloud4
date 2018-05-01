@@ -6,11 +6,10 @@ const epilogue = require('epilogue')
 const OktaJwtVerifier = require('@okta/jwt-verifier')
 const db = require('./models');
 const Post = db.Post;
-const Task = db.Task;
-const Actor = db.actor;
-const Film = db.film;
-const Rental = db.rental;
-const User = db.User;
+const Employee = db.employees;
+const Salary = db.salaries;
+const Title = db.titles;
+const Department = db.departments;
 
 const oktaJwtVerifier = new OktaJwtVerifier({
   clientId: '0oaethn5zrHz7JNpw0h7',
@@ -55,36 +54,30 @@ let userResource = epilogue.resource({
   endpoints: ['/posts', '/posts/:id']
 })
 
-// Create the dynamic REST resource for our Task model
-let taskResource = epilogue.resource({
-  model: Task,
-  endpoints: ['/tasks', '/tasks/:id']
+//Create the dynamic REST resource for our Employee model
+let employeeResource = epilogue.resource({
+  model: Employee,
+  endpoints: ['/employees', '/employees/:id']
 })
 
-
-// Create the dynamic REST resource for our Actor model
-let actorResource = epilogue.resource({
-  model: Actor,
-  endpoints: ['/actors', '/actors/:id']
+//Create the dynamic REST resource for our Salary model
+let salaryResource = epilogue.resource({
+  model: Salary,
+  endpoints: ['/salaries', '/salaries/:id']
 })
 
-// Create the dynamic REST resource for our Film model
-let filmResource = epilogue.resource({
-  model: Film,
-  endpoints: ['/films', '/films/:id']
+//Create the dynamic REST resource for our Title model
+let titleResource = epilogue.resource({
+  model: Title,
+  endpoints: ['/titles', '/titles/:id']
 })
 
-// Create the dynamic REST resource for our User model
-let accountResource = epilogue.resource({
-  model: User,
-  endpoints: ['/users', '/users/:id']
+//Create the dynamic REST resource for our Department model
+let departmentResource = epilogue.resource({
+  model: Department,
+  endpoints: ['/departments', '/departments/:id']
 })
 
-// Create the dynamic REST resource for our Rental model
-let rentalResource = epilogue.resource({
-  model: Rental,
-  endpoints: ['/rentals', '/actors/:id']
-})
 
 app.get('/api/getActors', (req,res) =>{
   console.log("i made it ")
@@ -122,3 +115,9 @@ db.sequelize.sync()
   console.error('Unable to connect to the database:', err);
 });
 
+
+
+const sequelize = new Sequelize('sakila', 'boss', 'boss12', {
+  host: '127.0.0.1',
+  dialect: 'mysql'
+});

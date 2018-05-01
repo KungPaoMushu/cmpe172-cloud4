@@ -25,36 +25,6 @@ export default {
 
 
   },
-  getTasks () {
-    return this.execute('get', '/tasks')
-  },
-  getTask (id) {
-    return this.execute('get', `/tasks/${id}`)
-  },
-  createTask (data) {
-    return this.execute('task', '/tasks', data)
-  },
-  updateTask (id, data) {
-    return this.execute('put', `/tasks/${id}`, data)
-  },
-  deleteTask (id) {
-    return this.execute('delete', `/tasks/${id}`)
-  },
-  getActors () {
-    return this.execute('get', '/actors')
-  },
-  getActor (id) {
-    return this.execute('get', `/actors/${id}`)
-  },
-  createActor (data) {
-    return this.execute('actor', '/actors', data)
-  },
-  updateActor (id, data) {
-    return this.execute('put', `/actors/${id}`, data)
-  },
-  deleteActor (id) {
-    return this.execute('delete', `/actors/${id}`)
-  },
   getPosts () {
     return this.execute('get', '/posts')
   },
@@ -70,17 +40,20 @@ export default {
   deletePost (id) {
     return this.execute('delete', `/posts/${id}`)
   },
-  getFilm(id) {
-    return this.execute('get', `/films/${id}`)
+  getEmployees () {
+    return this.execute('get', '/employees')
   },
-  getFilms () {
-    return this.execute('get', '/films')
+  getEmployee (id) {
+    return this.execute('get', `/employees/${id}`)
   },
-  getRental (id) {
-    return this.execute('get', `/rentals/${id}`)
+  createEmployee (data) {
+    return this.execute('employee', '/employees', data)
   },
-  getRentals () {
-    return this.execute('get', '/rentals')
+  updateEmployee (id, data) {
+    return this.execute('put', `/employees/${id}`, data)
+  },
+  deleteEmployee (id) {
+    return this.execute('delete', `/employees/${id}`)
   },
   getUser (id) {
     return this.execute('get', `/users/${id}`)
@@ -89,13 +62,22 @@ export default {
     return this.execute('get', '/users')
   },
   createUser (data) {
-    return this.execute('post', '/users', data)
+    return this.execute('user', '/users', data)
   },
   updateUser (id, data) {
     return this.execute('put', `/users/${id}`, data)
   },
   deleterUser (id) {
     return this.execute('delete', `/users/${id}`)
+  },
+  getSalaries () {
+    return this.execute('get', '/salaries')
+  },
+  getTitles () {
+    return this.execute('get', '/titles')
+  },
+  getDepartments () {
+    return this.execute('get', '/departments')
   }
 
 }
