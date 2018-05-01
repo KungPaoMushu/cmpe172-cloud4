@@ -24,14 +24,26 @@
                   </v-card>
                 </v-flex>
                 <v-flex xs12 md8>
-                  <v-card class="elevation-0 transparent">
-                    <v-card-title primary-title class="layout justify-center">
-                      <div class="headline">Manage employees</div>
-                    </v-card-title>
-                    <v-card-text>
-                      Fastest Recovery is a proof-of-concept web application connected to Okta's SSO service. On this site, you may explore data and view graphs of all of Company X's employees. The application is also connected to GitHub, Jenkins, and Twitter.
-                    </v-card-text>
-                  </v-card>
+                  <v-container fluid>
+                    <v-layout row wrap>
+                      <v-flex xs12>
+                        <v-card class="elevation-0 transparent">
+                          <v-card-title primary-title class="layout justify-center">
+                            <div class="headline">Manage employees</div>
+                          </v-card-title>
+                          <v-card-text>
+                            Fastest Recovery is a proof-of-concept web application connected to Okta's SSO service. On this site, you may explore data and view graphs of all of Company X's employees. The application is also connected to GitHub, Jenkins, and Twitter.
+                          </v-card-text>
+                        </v-card>
+                      </v-flex>
+                      <v-flex xs12>
+                        <v-btn block dark color="grey darken-3" href="https://dev-487888.oktapreview.com/home/github/0oaethjs2fl28KhP50h7/114?fromHome=true">Sign in to GitHub</v-btn>
+                        <v-btn block dark color="blue lighten-2" href="https://dev-487888.oktapreview.com/home/inboxbygmail/0oaevlcjniAqjK3GJ0h7/aln1cx5cu343wIl7s1d8?fromHome=true">Sign in to Inbox by Gmail</v-btn>
+                        <v-btn block dark color="red" href="https://dev-487888.oktapreview.com/home/sjsudev487888_jenkinssaml_1/0oaevjb47jsIipWNc0h7/alnevk4yw067N3dZj0h7?fromHome=true">Sign in to Jenkins</v-btn>
+                        <v-btn block dark color="primary" href="https://dev-487888.oktapreview.com/home/twitter/0oaevl260toVRQaEz0h7/150?fromHome=true">Sign in to Twitter</v-btn>
+                      </v-flex>
+                    </v-layout>
+                  </v-container>
                 </v-flex>
               </v-layout>
             </v-container>
