@@ -81,6 +81,21 @@ export default {
   },
   getRentals () {
     return this.execute('get', '/rentals')
+  },
+  getUser (id) {
+    return this.execute('get', `/users/${id}`)
+  },
+  getUsers () {
+    return this.execute('get', '/users')
+  },
+  createUser (data) {
+    return this.execute('post', '/users', data)
+  },
+  updateUser (id, data) {
+    return this.execute('put', `/users/${id}`, data)
+  },
+  deleterUser (id) {
+    return this.execute('delete', `/users/${id}`)
   }
 
 }

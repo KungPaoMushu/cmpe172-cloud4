@@ -77,6 +77,10 @@ export default {
       console.log(await api.getFilms())
       console.log("testinging get all rentals")
       console.log(await api.getRentals())
+      console.log("testinging get all users")
+      console.log(await api.getUsers())
+
+
       this.loading = false
     },
     async populatePostToEdit (post) {

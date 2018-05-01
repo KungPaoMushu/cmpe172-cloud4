@@ -10,6 +10,7 @@ const Task = db.Task;
 const Actor = db.actor;
 const Film = db.film;
 const Rental = db.rental;
+const User = db.User;
 
 const oktaJwtVerifier = new OktaJwtVerifier({
   clientId: '0oaethn5zrHz7JNpw0h7',
@@ -73,6 +74,11 @@ let filmResource = epilogue.resource({
   endpoints: ['/films', '/films/:id']
 })
 
+// Create the dynamic REST resource for our User model
+let accountResource = epilogue.resource({
+  model: User,
+  endpoints: ['/users', '/users/:id']
+})
 
 // Create the dynamic REST resource for our Rental model
 let rentalResource = epilogue.resource({
