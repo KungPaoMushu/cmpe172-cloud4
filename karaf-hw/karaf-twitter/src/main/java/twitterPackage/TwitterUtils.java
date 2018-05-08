@@ -123,7 +123,6 @@ public class TwitterUtils {
 			
 			JSONObject obj2 = (JSONObject) JSONValue.parse(getResponse(connection));
 			JSONArray obj = (JSONArray) obj2.get("users");
-			System.out.println(obj2);
 			if (obj != null) {
 				String[][] followers = new String[obj.size()][2];
 				for(int i = 0; i < followers.length; i++) {
@@ -203,7 +202,6 @@ public class TwitterUtils {
 			
 			JSONObject obj2 = (JSONObject) JSONValue.parse(getResponse(connection));
 			JSONArray obj = (JSONArray) obj2.get("users");
-			System.out.println(obj2);
 			if (obj != null) {
 				String[][] friends = new String[obj.size()][2];
 				for(int i = 0; i < friends.length; i++) {
@@ -241,7 +239,6 @@ public class TwitterUtils {
 			establishConnection(connection, bearerToken, "GET");
 			
 			JSONArray obj = (JSONArray)JSONValue.parse(getResponse(connection));
-			System.out.println(obj);
 			if (obj != null) {
 				String[][] favorites = new String[obj.size()][2];
 				for(int i = 0; i < favorites.length; i++) {
