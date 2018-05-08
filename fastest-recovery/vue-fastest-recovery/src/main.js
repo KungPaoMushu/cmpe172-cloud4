@@ -8,7 +8,10 @@ import 'vuetify/dist/vuetify.min.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import { store } from './store'
+import 'chart.js'
+import 'hchs-vue-charts'
 
+Vue.use(window.VueCharts)
 Vue.use(Vuetify)
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)

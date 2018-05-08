@@ -1,10 +1,17 @@
 <template>
   <v-card>
-    <v-card-title>
+    <v-toolbar dark color="primary">
       <span class="title">Salaries</span>
       <v-spacer></v-spacer>
-      <v-btn flat icon @click="onDismissed">x</v-btn>
-    </v-card-title>
+      <v-btn flat icon @click="onDismissed"><v-icon>close</v-icon></v-btn>
+    </v-toolbar>
+    <v-container>
+      <v-layout row wrap>
+        <v-flex xs8 offset-xs2>
+          <chartjs-line v-if="data !== null" datalabel="Salary" :labels="graphLabels" :data="graphData" :beginzero="true"></chartjs-line>
+        </v-flex>
+      </v-layout>
+    </v-container>
     <v-data-table
       :headers="headers"
       :items="data"
@@ -24,7 +31,6 @@
 
 <script>
   import api from '@/api'
-  import LineChart from '@/components/admin/line_chart.js'
   export default {
     data () {
       return {
@@ -55,21 +61,17 @@
     },
     props: ['employee'],
     computed: {
-      chartData () {
-        var data = {
-          labels: (this.data === null || this.data === undefined) ? [] : this.data.map(a => a.from_date),
-          datasets: [
-            {
-              label: 'Salaries',
-              backgroundColor: '#f87979',
-              data: (this.data === null || this.data === undefined) ? [] : this.data.map(a => a.salaries)
-            }
-          ]
+      graphLabels () {
+        if (this.data === null || this.data === undefined) {
+          return []
         }
-        return data
+        return this.data.map(a => a.from_date)
       },
-      chartOptions () {
-        return { responsive: false, maintainAspectRatio: false }
+      graphData () {
+        if (this.data === null || this.data === undefined) {
+          return []
+        }
+        return this.data.map(a => a.salary)
       }
     },
     methods: {
@@ -79,6 +81,7 @@
       },
       onDismissed () {
         this.$emit('dismissed')
+        this.data = null
       }
     },
     watch: {
@@ -87,9 +90,6 @@
           this.loadData()
         }
       }
-    },
-    components: {
-      'line-chart': LineChart
     }
   }
 </script>

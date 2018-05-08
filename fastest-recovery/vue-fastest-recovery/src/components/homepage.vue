@@ -36,11 +36,20 @@
                           </v-card-text>
                         </v-card>
                       </v-flex>
-                      <v-flex xs12>
-                        <v-btn block dark color="grey darken-3" href="https://dev-487888.oktapreview.com/home/github/0oaethjs2fl28KhP50h7/114?fromHome=true">Sign in to GitHub</v-btn>
-                        <v-btn block dark color="blue lighten-2" href="https://dev-487888.oktapreview.com/home/inboxbygmail/0oaevlcjniAqjK3GJ0h7/aln1cx5cu343wIl7s1d8?fromHome=true">Sign in to Inbox by Gmail</v-btn>
-                        <v-btn block dark color="red" href="https://dev-487888.oktapreview.com/home/sjsudev487888_jenkinssaml_1/0oaevjb47jsIipWNc0h7/alnevk4yw067N3dZj0h7?fromHome=true">Sign in to Jenkins</v-btn>
-                        <v-btn block dark color="primary" href="https://dev-487888.oktapreview.com/home/twitter/0oaevl260toVRQaEz0h7/150?fromHome=true">Sign in to Twitter</v-btn>
+                      <v-flex xs12 md4>
+                        <v-btn block color="blue lighten-3" href="https://dev-487888.oktapreview.com/home/github/0oaethjs2fl28KhP50h7/114?fromHome=true"><img src="https://op1static.oktacdn.com/assets/img/logos/github.68d84f592210c884e703a5d119ea73d7.png"></v-btn>
+                      </v-flex>
+                      <v-flex xs12 md4>
+                        <v-btn block color="blue lighten-3" href="https://dev-487888.oktapreview.com/home/inboxbygmail/0oaevlcjniAqjK3GJ0h7/aln1cx5cu343wIl7s1d8?fromHome=true"><img src="https://op1static.oktacdn.com/bc/globalFileStoreRecord?id=gfsci5ec9tdLSnFTr0h7"></v-btn>
+                      </v-flex>
+                      <v-flex xs12 md4>
+                        <v-btn block color="blue lighten-3" href="https://dev-487888.oktapreview.com/home/sjsudev487888_jenkinssaml_1/0oaevjb47jsIipWNc0h7/alnevk4yw067N3dZj0h7?fromHome=true"><img src="https://op1static.oktacdn.com/bc/globalFileStoreRecord?id=gfs3upz62lj5X2n5X0h7"></v-btn>
+                      </v-flex>
+                      <v-flex xs12 md4>
+                        <v-btn block color="blue lighten-3" href="https://dev-487888.oktapreview.com/home/twitter/0oaew70xjoi2pelVk0h7/150?fromHome=true"><img src="https://op1static.oktacdn.com/assets/img/logos/twitter.5497b8fc1bc55930b05f0ba41b77b49d.png"></v-btn>
+                      </v-flex>
+                      <v-flex xs12 md4>
+                        <v-btn block color="blue lighten-3" href="https://dev-487888.oktapreview.com/home/skydrive/0oaew70ocwhEzIKnX0h7/857?fromHome=true"><img src="https://op1static.oktacdn.com/bc/globalFileStoreRecord?id=gfs2e9vec3LLQPQYBNJZ"></v-btn>
                       </v-flex>
                     </v-layout>
                   </v-container>
@@ -83,57 +92,51 @@
         >
           <v-flex xs12 sm4 class="my-3">
             <div class="text-xs-center">
-              <h2 class="headline">The best way to start developing</h2>
+              <h2 class="headline">Company X</h2>
               <span class="subheading">
-                Cras facilisis mi vitae nunc 
+                Employee Management System
               </span>
             </div>
           </v-flex>
           <v-flex xs12>
             <v-container grid-list-xl>
-              <v-layout row wrap align-center>
+              <v-layout row wrap>
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-xs-center">
-                      <v-icon x-large class="blue--text text--lighten-2">color_lens</v-icon>
+                      <v-icon x-large class="blue--text text--lighten-2">grid_on</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline text-xs-center">Material Design</div>
+                      <div class="headline text-xs-center">View Employee Data</div>
                     </v-card-title>
                     <v-card-text>
-                      Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                      Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
+                      Search the employee database for information such as names, birthdays, hire dates, and more! You can also browse department and access the employees' salary information.
                     </v-card-text>
                   </v-card>
                 </v-flex>
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-xs-center">
-                      <v-icon x-large class="blue--text text--lighten-2">flash_on</v-icon>
+                      <v-icon x-large class="blue--text text--lighten-2">trending_up</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline">Fast development</div>
+                      <div class="headline">View Salary Trends</div>
                     </v-card-title>
                     <v-card-text>
-                      Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                      Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
+                      View each employee's salary records on a line chart - easily observe what the salary trend looks like with a simple graph!
                     </v-card-text>
                   </v-card>
                 </v-flex>
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-xs-center">
-                      <v-icon x-large class="blue--text text--lighten-2">build</v-icon>
+                      <v-icon x-large class="blue--text text--lighten-2">security</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline text-xs-center">Completely Open Sourced</div>
+                      <div class="headline text-xs-center">Access SSO</div>
                     </v-card-title>
                     <v-card-text>
-                      Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                      Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
+                      Use your SSO Login to access other linked applications such as Twitter, Jenkins, GitHub, OneDrive, and much more! No need to remember all those different passwords - Okta has you covered!
                     </v-card-text>
                   </v-card>
                 </v-flex>
